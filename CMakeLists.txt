@@ -2,6 +2,9 @@ cmake_minimum_required(VERSION 3.1.0)
 
 project(base-classes)
 
+include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+conan_basic_setup()
+
 set(SRC_LIST 
 		amextra.cpp
 		amfilter.cpp
@@ -78,12 +81,5 @@ set(SRC_LIST
 include_directories(${CMAKE_SOURCE_DIR}/)
 
 add_definitions(-DUNICODE -D_UNICODE)
-
-if (MSVC) 
-    set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /MTd")
-    set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /MT")
-    set(CMAKE_CXX_FLAGS_MINSIZEREL "${CMAKE_CXX_FLAGS_MINSIZEREL} /MT")
-    set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_FLAGS_RELWITHDEBINFO} /MT")
-endif()
 
 add_library(base-classes STATIC ${SRC_LIST})
