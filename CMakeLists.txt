@@ -1,9 +1,7 @@
-cmake_minimum_required(VERSION 4.0)							
+cmake_minimum_required(VERSION 4.0)
 
 project(base-classes)
 
-include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
-conan_basic_setup()
 
 set(SRC_LIST 
 		amextra.cpp
