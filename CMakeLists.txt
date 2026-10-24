@@ -2,6 +2,9 @@ cmake_minimum_required(VERSION 4.0)
 
 project(base-classes)
 
+if (MSVC)
+	add_compile_options(/permissive)
+endif()
 
 set(SRC_LIST 
 		amextra.cpp
